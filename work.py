@@ -21,7 +21,7 @@ from math import floor
 def toAscii(x):
 	return ord(x)
 
-# Load dataset
+# Chargement de la base de données
 url = "https://archive.ics.uci.edu/ml/machine-learning-databases/mushroom/agaricus-lepiota.data"
 names = ['class', 'cap-shape', 'cap-surface', 'cap-color', 'bruises','odor','gill-attachment','gill-spacing','gill-size','gill-color','stalk-shape','stalk-root','stalk-surface-above-ring','stalk-surface-below-ring','stalk-color-above-ring','stalk-color-below-ring','veil-type','veil-color','ring-number','ring-type','spore-print-color','population','habitat']
 dataset = pandas.read_csv(url, names=names, na_values='?')
@@ -46,7 +46,7 @@ scoring = 'accuracy'
 
 #SELECTION DU MEILLEUR MODELE
 
-# Spot Check Algorithms
+# Spot Check algorithme
 models = []
 models.append(('LR', LogisticRegression()))
 models.append(('KNN', KNeighborsClassifier()))
@@ -66,7 +66,7 @@ for name, model in models:
 	print(msg)
 
 
-# Make predictions on validation dataset
+# Génération des prédictions
 cart = DecisionTreeClassifier()
 cart.fit(X_train, Y_train)
 predictions = cart.predict(X_validation)
